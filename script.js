@@ -6,12 +6,21 @@ function makeInputs() {
     var parent = document.getElementById("base-list")
     
     for (let i = 1; i <= 36; i++) {
+
+        var container = document.createElement("div");
+        container.class = "container";
+
+        var header = document.createElement("h5");
+        header.textContent = `base ${i}`;
+
         var input = document.createElement("input")
         input.id = `base-${i}`
         input.oninput = function(){calcBases(i)};
-        input.placeholder = `Base ${i}`
+        input.placeholder = `${i}`
 
-        parent.appendChild(input);
+        container.appendChild(header);
+        container.appendChild(input);
+        parent.appendChild(container);
     }
 
 
